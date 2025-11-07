@@ -46,6 +46,7 @@ import com.blockstream.compose.components.GreenAlert
 import com.blockstream.compose.components.GreenAsset
 import com.blockstream.compose.components.GreenButton
 import com.blockstream.compose.components.GreenButtonSize
+import com.blockstream.compose.components.INSSatsPromo
 import com.blockstream.compose.components.ListHeader
 import com.blockstream.compose.components.Promo
 import com.blockstream.compose.components.WalletBalance
@@ -275,6 +276,14 @@ fun WalletOverviewScreen(
 
                     item(key = "Promo") {
                         Promo(
+                            viewModel = viewModel,
+                            modifier = Modifier.padding(top = 8.dp)
+                        )
+                    }
+
+                    // INSSats Promo Card
+                    item(key = "INSSats") {
+                        INSSatsPromo(
                             viewModel = viewModel,
                             modifier = Modifier.padding(top = 8.dp)
                         )
