@@ -20,6 +20,9 @@ import com.blockstream.common.managers.DeviceManager
 import com.blockstream.common.models.MainViewModel
 import com.blockstream.common.models.SimpleGreenViewModel
 import com.blockstream.common.models.about.AboutViewModel
+import com.blockstream.common.models.inssats.INSSatsViewModel
+import com.blockstream.common.models.inssats.PlannedWithdrawalViewModel
+import com.blockstream.common.models.inssats.PurchaseHistoryViewModel
 import com.blockstream.common.models.add.Account2of3ViewModel
 import com.blockstream.common.models.add.ChooseAccountTypeViewModel
 import com.blockstream.common.models.add.ReviewAddAccountViewModel
@@ -99,6 +102,9 @@ import com.blockstream.compose.dialogs.UrlWarningDialog
 import com.blockstream.compose.managers.rememberStateKeeperFactory
 import com.blockstream.compose.screens.HomeScreen
 import com.blockstream.compose.screens.about.AboutScreen
+import com.blockstream.compose.screens.inssats.INSSatsScreen
+import com.blockstream.compose.screens.inssats.PlannedWithdrawalScreen
+import com.blockstream.compose.screens.inssats.PurchaseHistoryScreen
 import com.blockstream.compose.screens.add.Account2of3Screen
 import com.blockstream.compose.screens.add.ChooseAccountTypeScreen
 import com.blockstream.compose.screens.add.ReviewAddAccountScreen
@@ -239,6 +245,18 @@ fun Router(
             }
             appComposable<NavigateDestinations.AppSettings> {
                 AppSettingsScreen(viewModel { AppSettingsViewModel() })
+            }
+            appComposable<NavigateDestinations.INSSats> {
+                val args = it.toRoute<NavigateDestinations.INSSats>()
+                INSSatsScreen(viewModel { INSSatsViewModel(greenWallet = args.greenWallet) })
+            }
+            appComposable<NavigateDestinations.PurchaseHistory> {
+                val args = it.toRoute<NavigateDestinations.PurchaseHistory>()
+                PurchaseHistoryScreen(viewModel { PurchaseHistoryViewModel(greenWallet = args.greenWallet) })
+            }
+            appComposable<NavigateDestinations.PlannedWithdrawal> {
+                val args = it.toRoute<NavigateDestinations.PlannedWithdrawal>()
+                PlannedWithdrawalScreen(viewModel { PlannedWithdrawalViewModel(greenWallet = args.greenWallet) })
             }
             appComposable<NavigateDestinations.SetupNewWallet> {
                 SetupNewWalletScreen(viewModel { SetupNewWalletViewModel() })

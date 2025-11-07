@@ -504,4 +504,13 @@ sealed class NavigateDestinations : NavigateDestination() {
 
     @Serializable
     data object TorWarning : NavigateDestination()
+
+    @Serializable
+    data class INSSats(val greenWallet: GreenWallet) : NavigateDestination()
+
+    @Serializable
+    data class PurchaseHistory(val greenWallet: GreenWallet) : NavigateDestination()
+
+    @Serializable
+    data class PlannedWithdrawal(val greenWallet: GreenWallet) : NavigateDestination()
 }
